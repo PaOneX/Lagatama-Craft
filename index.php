@@ -1,0 +1,204 @@
+<?php
+
+include "connection.php";
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagatama Craft | Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="icon" href="resources/images/hansi logo jpg.jpg" />
+
+</head>
+
+<body class="bg_cover vh-100">
+
+
+
+    <div class="container">
+       
+
+        <!-- Sign Up Box -->
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-lg-8">
+                <div class="border border-5 border-white p-3 shadow-lg d-none mt-3 rounded-5 p-5" id="signUp_Box">
+                    <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 120px; height: 120px;">
+                        <img src="resources/images/hansi logo jpg.jpg" height="70px">
+                    </div>
+                    <div class="row g-3">
+                        <h1 class="text-center textX3 col-12">Sign Up</h1>
+
+                        <div class="col-12 col-lg-6 ">
+                            <label class="form-label textX3">First Name</label>
+                            <input type="text" class="form-control" placeholder="Kamal" id="fname" />
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label textX3">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Perera" id="lname" />
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label textX3">Email Address</label>
+                            <input type="email" class="form-control" placeholder="example@gmail.com" id="email" />
+                        </div>
+
+
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label textX3">Password</label>
+                            <input type="password" placeholder="*******" class="form-control" id="password">
+                        </div>
+                        <div class="col-12 col-lg-6 mb-4">
+
+                            <label class="form-label textX3">Mobile</label>
+                            <input type="text" class="form-control" placeholder="0778953275" id="mobile">
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <label class="form-label textX3">Gender</label>
+                            <select class="form-control" id="gender">
+                                <?php
+                                $rs = Database::search("SELECT * FROM `gender`");
+                                $num = $rs->num_rows;
+                                for ($x = 0; $x < $num; $x++) {
+                                    $data = $rs->fetch_assoc();
+                                ?>
+                                    <option value="<?php echo $data["id"]; ?>">
+                                        <?php echo $data["gender"]; ?>
+                                    </option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <button class="btn btn-primary col-12 button" onclick="signUp();">Sign Up</button>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <button class="btn btn-info text-white col-12 button" onclick="changeView();">Already have an Account? Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Box -->
+
+ <!-- Sign In Box -->
+ <div class="d-flex justify-content-center align-items-center">
+
+<div class="col-lg-6">
+    <div class="border border-4 rounded-5 p-5 shadow" id="signIn_Box">
+        <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-2 mx-auto" style="width: 120px; height: 120px;">
+            <img src="resources/images/hansi logo jpg.jpg" height="70px">
+        </div>
+        <h1 class="text-center col-12 textX3">Sign In</h1>
+        <div class="row g-3">
+            <div class="col-12">
+
+                <?php
+                $email = "";
+                $password = "";
+
+                if (isset($_COOKIE["email"])) {
+                    $email = $_COOKIE["email"];
+                }
+
+                if (isset($_COOKIE["password"])) {
+                    $password = $_COOKIE["password"];
+                }
+                ?>
+
+                <label class="form-label textX3">Email:</label>
+                <input type="email1" class="form-control" id="email1" value="<?php echo $email; ?>" />
+            </div>
+
+            <div class="input-group col-12 col-lg-12">
+                <label for="form-label" class="col-12 textX3">Password :</label>
+                <input type="password" class="form-control" placeholder="*******" id="password1" value="<?php echo $password; ?>" />
+                <button class="btn btn-secondary" onclick="showPassword2();" id="sp"><i class="bi bi-eye-fill"></i></button>
+            </div>
+
+            <div class="col-6 col-lg-6">
+                <input type="checkbox" class="form-check-input" id="rememberme" />
+                <label class="form-label textX3">Remember Me:</label>
+            </div>
+            <div class="col-6 col-lg-6 text-end">
+                <a href="#" class="link-light textX3" onclick="forgotPassword();">Forgot Password?</a>
+            </div>
+            <div class="row p-3">
+
+                <div class="col-6 col-lg-12 d-grid text-center">
+                    <button class="btn btn-warning button" onclick="signIn();">Sign In</button>
+                </div>
+                <div class="col-6 col-lg-12 mb-3 mt-2 d-grid text-center">
+                    <button class="btn btn-outline-light text-dark fw-bolder fst-italic" onclick="changeView();">Didn't have an Account? Back to Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Sign In Box -->
+</div>
+
+        <!-- modal -->
+        <div class="modal" tabindex="-1" id="fpmodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Forgot Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row g-3">
+
+                            <div class="col-6">
+                                <label class="form-label">New Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="np" />
+                                    <button id="npb" class="btn btn-outline-secondary" type="button" onclick="showPassword3();"> <i class='bi bi-eye-slash-fill'></i> </button>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <label class="form-label">Re-type Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="rnp" />
+                                    <button id="rnpb" class="btn btn-outline-secondary" type="button" onclick="showPassword4();"> <i class='bi bi-eye-slash-fill'></i> </button>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Verification Code</label>
+                                <input type="text" class="form-control" id="vcode" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="resetPassword();">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>
