@@ -1,6 +1,12 @@
 <?php
-
+session_start();
 include "connection.php";
+
+if (!isset($_SESSION["u"])) {
+    // If the user is not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
 
 ?>
 
