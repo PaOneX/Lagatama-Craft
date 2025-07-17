@@ -14,5 +14,8 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "scripts": {
+        "serve": "php -S 127.0.0.1:8888 -t public public/router.php"
     }
 }
