@@ -51,10 +51,14 @@ class Order
     public static function getItems(int $ohId): array
     {
         return Database::fetchAll(
-            'SELECT oi.*, s.price, p.name, p.path, p.description
+            'SELECT oi.*, s.price, p.name, p.path, p.description,
+                    col.color_name, sz.size_name, b.brand_name
              FROM `order_items` oi
              INNER JOIN `stock` s ON oi.stock_stock_id = s.stock_id
              INNER JOIN `product` p ON s.product_id = p.id
+             INNER JOIN `color` col ON p.color_id = col.color_id
+             INNER JOIN `size` sz ON p.size_id = sz.size_id
+             INNER JOIN `brand` b ON p.brand_id = b.brand_id
              WHERE oi.order_history_oh_id = ?',
             [$ohId]
         );
