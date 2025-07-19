@@ -11,12 +11,15 @@ class Cart
     public static function getByUserId(int $userId): array
     {
         return Database::fetchAll(
-            'SELECT c.*, s.price, s.stock_id, p.name, p.path, col.color_name, sz.size_name
+            'SELECT c.*, s.price, s.qty AS stock_qty, s.stock_id, p.name, p.path,
+                    col.color_name, sz.size_name, b.brand_name, cat.cat_name
              FROM `cart` c
              INNER JOIN `stock` s ON c.stock_stock_id = s.stock_id
              INNER JOIN `product` p ON s.product_id = p.id
              INNER JOIN `color` col ON p.color_id = col.color_id
              INNER JOIN `size` sz ON p.size_id = sz.size_id
+             INNER JOIN `brand` b ON p.brand_id = b.brand_id
+             INNER JOIN `category` cat ON p.category_id = cat.cat_id
              WHERE c.user_id = ?',
             [$userId]
         );
