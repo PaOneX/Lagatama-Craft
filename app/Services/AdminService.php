@@ -55,11 +55,30 @@ class AdminService
             return 'Please Enter Product Name';
         }
 
-        $required = ['brand', 'cat', 'color', 'size', 'desc'];
+        $required = ['brand', 'cat', 'desc'];
         foreach ($required as $field) {
             if (empty($input[$field])) {
                 return 'Please fill all required fields';
             }
+        }
+
+        $colorIds = $this->parseColorIds($input);
+        if (empty($colorIds)) {
+            return 'Please select at least one color';
+        }
+
+        if (count($colorIds) !== count(array_unique($colorIds))) {
+            return 'Each color can only be added once';
+        }
+
+        $sizeEntries = $this->parseSizeEntries($input);
+        if (empty($sizeEntries)) {
+            return 'Please select at least one size';
+        }
+
+        $sizeIds = array_column($sizeEntries, 'size_id');
+        if (count($sizeIds) !== count(array_unique($sizeIds))) {
+            return 'Each size can only be added once';
         }
 
         $uploads = $this->normalizeUploadedFiles($files);
@@ -67,29 +86,107 @@ class AdminService
             return 'Please select at least one image';
         }
 
-        $existing = Database::fetchOne('SELECT id FROM `product` WHERE `name` = ?', [$pname]);
-        if ($existing) {
-            return 'Product Already Exist';
-        }
-
         $paths = $this->saveProductImages($uploads);
         if (empty($paths)) {
             return 'Upload failed';
         }
 
-        $productId = Product::create([
-            'name' => $pname,
-            'description' => $input['desc'],
-            'path' => $paths[0],
-            'brand_id' => (int) $input['brand'],
-            'category_id' => (int) $input['cat'],
-            'color_id' => (int) $input['color'],
-            'size_id' => (int) $input['size'],
-        ]);
+        $brandId = (int) $input['brand'];
+        $categoryId = (int) $input['cat'];
+        $created = 0;
 
-        Product::addImages($productId, $paths);
+        foreach ($colorIds as $colorId) {
+            if ($colorId <= 0) {
+                continue;
+            }
+
+            foreach ($sizeEntries as $entry) {
+                $sizeId = (int) $entry['size_id'];
+                if ($sizeId <= 0) {
+                    continue;
+                }
+
+                $existing = Database::fetchOne(
+                    'SELECT id FROM `product`
+                     WHERE `name` = ? AND `brand_id` = ? AND `category_id` = ? AND `color_id` = ? AND `size_id` = ?',
+                    [$pname, $brandId, $categoryId, $colorId, $sizeId]
+                );
+                if ($existing) {
+                    continue;
+                }
+
+                $productId = Product::create([
+                    'name' => $pname,
+                    'description' => $input['desc'],
+                    'path' => $paths[0],
+                    'brand_id' => $brandId,
+                    'category_id' => $categoryId,
+                    'color_id' => $colorId,
+                    'size_id' => $sizeId,
+                ]);
+
+                Product::addImages($productId, $paths);
+
+                $price = (float) ($entry['price'] ?? 0);
+                $qty = (int) ($entry['qty'] ?? 0);
+                if ($price > 0 && $qty > 0) {
+                    Stock::create($productId, $price, $qty);
+                }
+
+                $created++;
+            }
+        }
+
+        if ($created === 0) {
+            return 'Product Already Exist';
+        }
 
         return 'success';
+    }
+
+    /** @return list<array{size_id: int, price: float, qty: int}> */
+    private function parseSizeEntries(array $input): array
+    {
+        $entries = [];
+
+        if (!empty($input['size_id']) && is_array($input['size_id'])) {
+            foreach ($input['size_id'] as $i => $sizeId) {
+                $entries[] = [
+                    'size_id' => (int) $sizeId,
+                    'price' => isset($input['size_price'][$i]) ? (float) $input['size_price'][$i] : 0,
+                    'qty' => isset($input['size_qty'][$i]) ? (int) $input['size_qty'][$i] : 0,
+                ];
+            }
+
+            return $entries;
+        }
+
+        if (!empty($input['size'])) {
+            $entries[] = [
+                'size_id' => (int) $input['size'],
+                'price' => 0,
+                'qty' => 0,
+            ];
+        }
+
+        return $entries;
+    }
+
+    /** @return list<int> */
+    private function parseColorIds(array $input): array
+    {
+        if (!empty($input['color_id']) && is_array($input['color_id'])) {
+            return array_values(array_filter(
+                array_map('intval', $input['color_id']),
+                static fn (int $id): bool => $id > 0
+            ));
+        }
+
+        if (!empty($input['color'])) {
+            return [(int) $input['color']];
+        }
+
+        return [];
     }
 
     /** @return list<array> */
