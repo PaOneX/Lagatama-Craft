@@ -72,6 +72,11 @@ class User
         Database::execute('UPDATE `user` SET `google_id` = ? WHERE `id` = ?', [$googleId, $userId]);
     }
 
+    public static function updateProfileImage(int $id, string $path): void
+    {
+        Database::execute('UPDATE `user` SET `img_path` = ? WHERE `id` = ?', [$path, $id]);
+    }
+
     public static function updateProfile(int $id, array $data): void
     {
         Database::execute(

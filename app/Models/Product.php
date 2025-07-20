@@ -101,6 +101,80 @@ class Product
         );
     }
 
+    /** Same product in other colors (matched by name, brand, category, size). */
+    public static function findColorVariantsByStockId(int $stockId): array
+    {
+        $current = self::findDetailByStockId($stockId);
+        if ($current === null) {
+            return [];
+        }
+
+        return Database::fetchAll(
+            'SELECT s.stock_id, s.qty, cl.color_id, cl.color_name, p.path
+             FROM `product` p
+             INNER JOIN `stock` s ON s.product_id = p.id
+             INNER JOIN `color` cl ON p.color_id = cl.color_id
+             WHERE p.name = ? AND p.brand_id = ? AND p.category_id = ? AND p.size_id = ?
+             ORDER BY cl.color_name',
+            [$current['name'], $current['brand_id'], $current['category_id'], $current['size_id']]
+        );
+    }
+
+    /** Paid order quantity for a product line (name + brand + category). */
+    public static function soldCountForLine(string $name, int $brandId, int $categoryId): int
+    {
+        $row = Database::fetchOne(
+            'SELECT COALESCE(SUM(oi.oi_qty), 0) AS cnt
+             FROM `order_items` oi
+             INNER JOIN `order_history` oh ON oi.order_history_oh_id = oh.oh_id
+             INNER JOIN `stock` s ON oi.stock_stock_id = s.stock_id
+             INNER JOIN `product` p ON s.product_id = p.id
+             WHERE p.name = ? AND p.brand_id = ? AND p.category_id = ? AND oh.status = ?',
+            [$name, $brandId, $categoryId, 'paid']
+        );
+
+        return (int) ($row['cnt'] ?? 0);
+    }
+
+    /** @return array{min: float, max: float} */
+    public static function linePriceRange(string $name, int $brandId, int $categoryId): array
+    {
+        $row = Database::fetchOne(
+            'SELECT MIN(s.price) AS min_price, MAX(s.price) AS max_price
+             FROM `product` p
+             INNER JOIN `stock` s ON s.product_id = p.id
+             WHERE p.name = ? AND p.brand_id = ? AND p.category_id = ?',
+            [$name, $brandId, $categoryId]
+        );
+
+        return [
+            'min' => (float) ($row['min_price'] ?? 0),
+            'max' => (float) ($row['max_price'] ?? 0),
+        ];
+    }
+
+    /** Same product in other sizes (matched by name, brand, category, color). */
+    public static function findSizeVariantsByStockId(int $stockId): array
+    {
+        $current = self::findDetailByStockId($stockId);
+        if ($current === null) {
+            return [];
+        }
+
+        return Database::fetchAll(
+            'SELECT s.stock_id, s.price, s.qty, sz.size_id, sz.size_name
+             FROM `product` p
+             INNER JOIN `stock` s ON s.product_id = p.id
+             INNER JOIN `size` sz ON p.size_id = sz.size_id
+             WHERE p.name = ? AND p.brand_id = ? AND p.category_id = ? AND p.color_id = ?
+             ORDER BY FIELD(sz.size_name,
+                \'XS\', \'S\', \'Small\', \'M\', \'Medium\', \'L\', \'Large\', \'XL\', \'XXL\', \'2XL\', \'3XL\',
+                \'38\', \'39\', \'40\', \'41\', \'42\', \'43\', \'44\', \'One Size\'
+             ), sz.size_name',
+            [$current['name'], $current['brand_id'], $current['category_id'], $current['color_id']]
+        );
+    }
+
     /** @return list<string> */
     public static function imagesForProduct(int $productId, string $fallbackPath): array
     {
