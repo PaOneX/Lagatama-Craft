@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Core\Auth;
 use App\Core\Http;
 use App\Core\Security;
+use App\Core\Upload;
 use App\Core\Validator;
 use App\Models\Cart;
 use App\Models\Product;
@@ -161,6 +162,9 @@ class AuthService
             }
         }
 
+        $this->syncGoogleProfilePicture((int) $user['id'], trim($payload['picture'] ?? ''), $user['img_path'] ?? null);
+        $user = User::findById((int) $user['id']) ?? $user;
+
         Auth::loginUser($user);
         return $isNew ? 'registered' : 'success';
     }
@@ -238,6 +242,9 @@ class AuthService
             User::linkGoogleId((int) $user['id'], $googleId);
             $user = User::findById((int) $user['id']);
         }
+
+        $this->syncGoogleProfilePicture((int) $user['id'], trim($payload['picture'] ?? ''), $user['img_path'] ?? null);
+        $user = User::findById((int) $user['id']) ?? $user;
 
         Auth::loginAdmin($user);
         return 'Success';
@@ -347,7 +354,11 @@ class AuthService
         $url = 'https://oauth2.googleapis.com/tokeninfo?id_token=' . urlencode($credential);
         $response = Http::get($url, 10, true);
         if ($response === null) {
-            $error = 'Could not verify Google token. Check that this server can reach https://oauth2.googleapis.com.';
+            if (Http::caBundlePath() === null) {
+                $error = 'Could not verify Google token. PHP cannot validate HTTPS certificates on this machine. The project includes storage/cacert.pem for Windows — ensure that file exists, or set SSL_CA_FILE in .env.';
+            } else {
+                $error = 'Could not verify Google token. Check that this server can reach https://oauth2.googleapis.com.';
+            }
             return null;
         }
 
@@ -373,6 +384,95 @@ class AuthService
         }
 
         return $data;
+    }
+
+    private function syncGoogleProfilePicture(int $userId, string $pictureUrl, ?string $currentImgPath): void
+    {
+        if ($pictureUrl === '' || !$this->isAllowedGooglePictureUrl($pictureUrl)) {
+            return;
+        }
+
+        try {
+            $binary = Http::download($pictureUrl);
+            if ($binary === null || $binary === '') {
+                return;
+            }
+
+            $maxBytes = (int) config('security.upload_max_image_bytes', 5 * 1024 * 1024);
+            if (strlen($binary) > $maxBytes) {
+                return;
+            }
+
+            $extensions = [
+                'image/jpeg' => 'jpg',
+                'image/png' => 'png',
+                'image/webp' => 'webp',
+                'image/gif' => 'gif',
+            ];
+
+            $mime = Upload::mimeFromBuffer($binary);
+            if ($mime === null || !isset($extensions[$mime])) {
+                return;
+            }
+
+            $dir = public_path('resources/profileImg');
+            if (!is_dir($dir)) {
+                mkdir($dir, 0755, true);
+            }
+
+            $filename = 'google_' . $userId . '_' . uniqid('', true) . '.' . $extensions[$mime];
+            $relativePath = 'resources/profileImg/' . $filename;
+            $absolutePath = public_path($relativePath);
+
+            if (file_put_contents($absolutePath, $binary) === false) {
+                return;
+            }
+
+            User::updateProfileImage($userId, $relativePath);
+            $this->removeStoredProfileImage($currentImgPath);
+        } catch (\Throwable) {
+            // Sign-in should succeed even if the profile image cannot be synced
+        }
+    }
+
+    private function isAllowedGooglePictureUrl(string $url): bool
+    {
+        if (!Security::isSafeHttpUrl($url)) {
+            return false;
+        }
+
+        $parts = parse_url($url);
+        if ($parts === false || strtolower($parts['scheme'] ?? '') !== 'https') {
+            return false;
+        }
+
+        $host = strtolower($parts['host'] ?? '');
+        return $host === 'googleusercontent.com' || str_ends_with($host, '.googleusercontent.com');
+    }
+
+    private function removeStoredProfileImage(?string $imgPath): void
+    {
+        if ($imgPath === null || $imgPath === '') {
+            return;
+        }
+
+        if (!str_starts_with($imgPath, 'resources/profileImg/')) {
+            return;
+        }
+
+        if (str_ends_with($imgPath, 'profileImg.png')) {
+            return;
+        }
+
+        $absolutePath = public_path($imgPath);
+        if (is_file($absolutePath)) {
+            @unlink($absolutePath);
+        }
+
+        $legacyPath = base_path($imgPath);
+        if ($legacyPath !== $absolutePath && is_file($legacyPath)) {
+            @unlink($legacyPath);
+        }
     }
 
     private function placeholderMobile(string $googleId): string
