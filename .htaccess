@@ -1,44 +1,14 @@
-# Lagatama Craft — Apache configuration
+# Lagatama Craft — project root (DocumentRoot should be public/)
 
+# If Apache is pointed here by mistake, forward web requests to public/
 <IfModule mod_rewrite.c>
     RewriteEngine On
-
-    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
-    RewriteRule ^resources/(.*)$ public/resources/$1 [L]
-
-    # Redirect legacy login routes
-    RewriteRule ^login\.php$ index.php [L,R=301]
-    RewriteRule ^signIn\.php$ index.php [L,R=301]
-    RewriteRule ^adminLogIn\.php$ adminSignIn.php [L,R=301]
-
-    # Block direct access to application internals
-    RewriteRule ^app/ - [F,L]
-    RewriteRule ^config/ - [F,L]
-    RewriteRule ^database/ - [F,L]
-    RewriteRule ^views/ - [F,L]
-    RewriteRule ^vendor/ - [F,L]
-    RewriteRule ^tools/ - [F,L]
-    RewriteRule ^storage/ - [F,L]
-    RewriteRule ^public/init\.php$ - [F,L]
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/|app/|config/|database/|resources/|storage/|tools/|vendor/|views/).*)$ public/$1 [L]
 </IfModule>
 
 <FilesMatch "^(\.env|composer\.(json|lock))$">
     Require all denied
 </FilesMatch>
 
-<FilesMatch "\.(sql|log|ini|bak)$">
-    Require all denied
-</FilesMatch>
-
-<IfModule mod_headers.c>
-    Header always set X-Frame-Options "SAMEORIGIN"
-    Header always set X-Content-Type-Options "nosniff"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
-</IfModule>
-
 Options -Indexes
-
-# Production: point document root to /public for best security
-# DocumentRoot should be set to the public/ folder
