@@ -2,8 +2,11 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Redirect legacy login routes
+    RewriteRule ^login\.php$ index.php [L,R=301]
+    RewriteRule ^signIn\.php$ index.php [L,R=301]
+    RewriteRule ^adminLogIn\.php$ admin/adminSignIn.php [L,R=301]
 </IfModule>
 
 <FilesMatch "^(\.env|composer\.(json|lock))$">
