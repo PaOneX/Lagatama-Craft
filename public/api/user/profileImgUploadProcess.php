@@ -20,12 +20,12 @@ if ($error !== null) {
 }
 
 $path = 'resources/profileImg/' . uniqid() . '.png';
-$dir = BASE_PATH . '/resources/profileImg';
+$dir = public_path('resources/profileImg');
 if (!is_dir($dir)) {
     mkdir($dir, 0755, true);
 }
 
-if (!move_uploaded_file($_FILES['i']['tmp_name'], BASE_PATH . '/' . $path)) {
+if (!move_uploaded_file($_FILES['i']['tmp_name'], public_path($path))) {
     Response::text('Upload failed', 400);
 }
 

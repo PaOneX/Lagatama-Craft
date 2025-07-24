@@ -51,12 +51,14 @@ ob_start();
                     <h5>Order Id: <?= htmlspecialchars((string) $order['order_id']) ?></h5>
                     <table class="table table-striped mt-3">
                         <thead class="table-dark">
-                            <tr><th>Product</th><th>Qty</th><th>Price</th></tr>
+                            <tr><th>Product</th><th>Size</th><th>Color</th><th>Qty</th><th>Price</th></tr>
                         </thead>
                         <tbody>
                         <?php foreach ($order['items'] as $item): ?>
                             <tr>
                                 <td><?= htmlspecialchars($item['name']) ?></td>
+                                <td><?= htmlspecialchars($item['size_name'] ?? '—') ?></td>
+                                <td><?= htmlspecialchars($item['color_name'] ?? '—') ?></td>
                                 <td><?= (int) $item['oi_qty'] ?></td>
                                 <td>Rs.<?= $item['price'] * $item['oi_qty'] ?></td>
                             </tr>
