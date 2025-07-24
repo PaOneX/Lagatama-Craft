@@ -35,9 +35,12 @@ include base_path('views/partials/navbar.php');
         </div>
     <?php else: foreach ($orders as $d):
         $items = Database::fetchAll(
-            'SELECT oi.oi_qty, s.price, p.name FROM `order_items` oi
+            'SELECT oi.oi_qty, s.price, p.name, col.color_name, sz.size_name
+             FROM `order_items` oi
              INNER JOIN `stock` s ON oi.stock_stock_id = s.stock_id
              INNER JOIN `product` p ON s.product_id = p.id
+             INNER JOIN `color` col ON p.color_id = col.color_id
+             INNER JOIN `size` sz ON p.size_id = sz.size_id
              WHERE oi.order_history_oh_id = ?',
             [$d['oh_id']]
         );
@@ -61,6 +64,8 @@ include base_path('views/partials/navbar.php');
                     <thead>
                         <tr>
                             <th>Product</th>
+                            <th>Size</th>
+                            <th>Color</th>
                             <th>Qty</th>
                             <th class="text-end">Amount</th>
                         </tr>
@@ -69,6 +74,8 @@ include base_path('views/partials/navbar.php');
                     <?php foreach ($items as $d2): ?>
                         <tr>
                             <td><?= htmlspecialchars($d2['name']) ?></td>
+                            <td><?= htmlspecialchars($d2['size_name']) ?></td>
+                            <td><?= htmlspecialchars($d2['color_name']) ?></td>
                             <td><?= (int) $d2['oi_qty'] ?></td>
                             <td class="text-end">Rs <?= number_format($d2['price'] * $d2['oi_qty'], 2) ?></td>
                         </tr>
