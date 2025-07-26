@@ -40,24 +40,34 @@ admin_layout($pageTitle, $activeNav, function () {
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label" for="color">Color</label>
-                    <select class="form-select" id="color">
-                        <option value="0">Select Color</option>
-                        <?php foreach (Database::fetchAll('SELECT * FROM `color`') as $d3): ?>
-                            <option value="<?= (int) $d3['color_id'] ?>"><?= htmlspecialchars($d3['color_name']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Colors</label>
+                <small class="text-muted d-block mb-2">Add every color you sell for this product.</small>
+                <div id="colorRows"
+                     class="admin-size-rows"
+                     data-color-options="<?= htmlspecialchars(json_encode(array_map(static fn ($row) => [
+                         'id' => (int) $row['color_id'],
+                         'name' => $row['color_name'],
+                     ], Database::fetchAll('SELECT * FROM `color` ORDER BY `color_name`'))), ENT_QUOTES, 'UTF-8') ?>">
                 </div>
-                <div class="col-md-6">
-                    <label class="form-label" for="size">Size</label>
-                    <select class="form-select" id="size">
-                        <option value="0">Select Size</option>
-                        <?php foreach (Database::fetchAll('SELECT * FROM `size`') as $d4): ?>
-                            <option value="<?= (int) $d4['size_id'] ?>"><?= htmlspecialchars($d4['size_name']) ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                <button type="button" class="admin-btn admin-btn-outline admin-size-add-btn" onclick="addColorRow();">
+                    <i class="bi bi-plus-lg"></i> Add color
+                </button>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Sizes &amp; initial stock</label>
+                <small class="text-muted d-block mb-2">Add every size you sell. You can set a starting quantity and price now, or add stock later.</small>
+                <div id="sizeRows"
+                     class="admin-size-rows"
+                     data-size-options="<?= htmlspecialchars(json_encode(array_map(static fn ($row) => [
+                         'id' => (int) $row['size_id'],
+                         'name' => $row['size_name'],
+                     ], Database::fetchAll('SELECT * FROM `size` ORDER BY `size_name`'))), ENT_QUOTES, 'UTF-8') ?>">
                 </div>
+                <button type="button" class="admin-btn admin-btn-outline admin-size-add-btn" onclick="addSizeRow();">
+                    <i class="bi bi-plus-lg"></i> Add size
+                </button>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="desc">Description</label>
@@ -84,8 +94,14 @@ admin_layout($pageTitle, $activeNav, function () {
                 <label class="form-label" for="productSelct">Product</label>
                 <select class="form-select" id="productSelct">
                     <option value="0">Select product</option>
-                    <?php foreach (Database::fetchAll('SELECT * FROM `product`') as $d): ?>
-                        <option value="<?= (int) $d['id'] ?>"><?= htmlspecialchars($d['name']) ?></option>
+                    <?php foreach (Database::fetchAll(
+                        'SELECT p.id, p.name, cl.color_name, sz.size_name
+                         FROM `product` p
+                         INNER JOIN `color` cl ON p.color_id = cl.color_id
+                         INNER JOIN `size` sz ON p.size_id = sz.size_id
+                         ORDER BY p.name, cl.color_name, sz.size_name'
+                    ) as $d): ?>
+                        <option value="<?= (int) $d['id'] ?>"><?= htmlspecialchars($d['name']) ?> — <?= htmlspecialchars($d['color_name']) ?> — <?= htmlspecialchars($d['size_name']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
