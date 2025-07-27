@@ -446,6 +446,39 @@
     color: #fff;
 }
 
+.admin-size-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.admin-size-row {
+    padding: 14px;
+    border: 1px solid var(--admin-border);
+    border-radius: 12px;
+    background: var(--admin-bg);
+}
+
+.admin-size-row .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--admin-muted);
+    margin-bottom: 4px;
+}
+
+.admin-size-add-btn {
+    width: auto;
+    padding: 8px 14px;
+    font-size: 0.8125rem;
+}
+
+.admin-size-remove:disabled,
+.admin-color-remove:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
 /* Tables */
 .admin-table-wrap {
     background: var(--admin-surface);
