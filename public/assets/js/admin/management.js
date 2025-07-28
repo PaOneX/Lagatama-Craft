@@ -45,14 +45,229 @@ function changeStockView() {
     document.getElementById('update').classList.toggle('d-none');
 }
 
+function getSizeOptions() {
+    const container = document.getElementById('sizeRows');
+    if (!container || !container.dataset.sizeOptions) {
+        return [];
+    }
+    try {
+        return JSON.parse(container.dataset.sizeOptions);
+    } catch (e) {
+        return [];
+    }
+}
+
+function buildSizeSelectOptions(selectedId) {
+    const options = getSizeOptions();
+    let html = '<option value="0">Select size</option>';
+    options.forEach((opt) => {
+        const selected = String(opt.id) === String(selectedId) ? ' selected' : '';
+        html += `<option value="${opt.id}"${selected}>${opt.name}</option>`;
+    });
+    return html;
+}
+
+function addSizeRow(selectedId) {
+    const container = document.getElementById('sizeRows');
+    if (!container) return;
+
+    const row = document.createElement('div');
+    row.className = 'admin-size-row';
+    row.innerHTML = `
+        <div class="row g-2 align-items-end">
+            <div class="col-sm-4">
+                <label class="form-label">Size</label>
+                <select class="form-select admin-size-select">${buildSizeSelectOptions(selectedId)}</select>
+            </div>
+            <div class="col-sm-3">
+                <label class="form-label">Qty</label>
+                <input type="number" class="form-control admin-size-qty" min="0" placeholder="0">
+            </div>
+            <div class="col-sm-3">
+                <label class="form-label">Price (LKR)</label>
+                <input type="number" class="form-control admin-size-price" min="0" step="0.01" placeholder="0.00">
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="admin-btn admin-btn-outline w-100 admin-size-remove" onclick="removeSizeRow(this);" title="Remove size">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    container.appendChild(row);
+    updateSizeRemoveButtons();
+}
+
+function removeSizeRow(button) {
+    const container = document.getElementById('sizeRows');
+    if (!container || container.children.length <= 1) {
+        showError('Oops!', 'At least one size is required');
+        return;
+    }
+    button.closest('.admin-size-row')?.remove();
+    updateSizeRemoveButtons();
+}
+
+function updateSizeRemoveButtons() {
+    const container = document.getElementById('sizeRows');
+    if (!container) return;
+    const rows = container.querySelectorAll('.admin-size-row');
+    rows.forEach((row) => {
+        const btn = row.querySelector('.admin-size-remove');
+        if (btn) {
+            btn.disabled = rows.length <= 1;
+        }
+    });
+}
+
+function getColorOptions() {
+    const container = document.getElementById('colorRows');
+    if (!container || !container.dataset.colorOptions) {
+        return [];
+    }
+    try {
+        return JSON.parse(container.dataset.colorOptions);
+    } catch (e) {
+        return [];
+    }
+}
+
+function buildColorSelectOptions(selectedId) {
+    const options = getColorOptions();
+    let html = '<option value="0">Select color</option>';
+    options.forEach((opt) => {
+        const selected = String(opt.id) === String(selectedId) ? ' selected' : '';
+        html += `<option value="${opt.id}"${selected}>${opt.name}</option>`;
+    });
+    return html;
+}
+
+function addColorRow(selectedId) {
+    const container = document.getElementById('colorRows');
+    if (!container) return;
+
+    const row = document.createElement('div');
+    row.className = 'admin-size-row';
+    row.innerHTML = `
+        <div class="row g-2 align-items-end">
+            <div class="col-sm-10">
+                <label class="form-label">Color</label>
+                <select class="form-select admin-color-select">${buildColorSelectOptions(selectedId)}</select>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="admin-btn admin-btn-outline w-100 admin-color-remove" onclick="removeColorRow(this);" title="Remove color">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    container.appendChild(row);
+    updateColorRemoveButtons();
+}
+
+function removeColorRow(button) {
+    const container = document.getElementById('colorRows');
+    if (!container || container.children.length <= 1) {
+        showError('Oops!', 'At least one color is required');
+        return;
+    }
+    button.closest('.admin-size-row')?.remove();
+    updateColorRemoveButtons();
+}
+
+function updateColorRemoveButtons() {
+    const container = document.getElementById('colorRows');
+    if (!container) return;
+    const rows = container.querySelectorAll('.admin-size-row');
+    rows.forEach((row) => {
+        const btn = row.querySelector('.admin-color-remove');
+        if (btn) {
+            btn.disabled = rows.length <= 1;
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sizeContainer = document.getElementById('sizeRows');
+    if (sizeContainer && sizeContainer.children.length === 0) {
+        addSizeRow();
+    }
+    const colorContainer = document.getElementById('colorRows');
+    if (colorContainer && colorContainer.children.length === 0) {
+        addColorRow();
+    }
+});
+
 async function regProduct() {
     const f = new FormData();
     f.append('pname', document.getElementById('pname').value);
     f.append('brand', document.getElementById('brand').value);
     f.append('cat', document.getElementById('cat').value);
-    f.append('color', document.getElementById('color').value);
-    f.append('size', document.getElementById('size').value);
     f.append('desc', document.getElementById('desc').value);
+
+    const colorRows = document.querySelectorAll('#colorRows .admin-size-row');
+    const usedColors = new Set();
+    let hasValidColor = false;
+    let duplicateColor = false;
+
+    colorRows.forEach((row) => {
+        const colorId = row.querySelector('.admin-color-select')?.value;
+        if (!colorId || colorId === '0') {
+            return;
+        }
+        if (usedColors.has(colorId)) {
+            duplicateColor = true;
+            return;
+        }
+        usedColors.add(colorId);
+        hasValidColor = true;
+        f.append('color_id[]', colorId);
+    });
+
+    if (duplicateColor) {
+        showError('Oops!', 'Each color can only be added once');
+        return;
+    }
+
+    if (!hasValidColor) {
+        showError('Oops!', 'Please select at least one color');
+        return;
+    }
+
+    const sizeRows = document.querySelectorAll('#sizeRows .admin-size-row');
+    const usedSizes = new Set();
+    let hasValidSize = false;
+    let duplicateSize = false;
+
+    sizeRows.forEach((row) => {
+        const sizeId = row.querySelector('.admin-size-select')?.value;
+        const qty = row.querySelector('.admin-size-qty')?.value || '0';
+        const price = row.querySelector('.admin-size-price')?.value || '0';
+
+        if (!sizeId || sizeId === '0') {
+            return;
+        }
+        if (usedSizes.has(sizeId)) {
+            duplicateSize = true;
+            return;
+        }
+        usedSizes.add(sizeId);
+        hasValidSize = true;
+        f.append('size_id[]', sizeId);
+        f.append('size_qty[]', qty);
+        f.append('size_price[]', price);
+    });
+
+    if (duplicateSize) {
+        showError('Oops!', 'Each size can only be added once');
+        return;
+    }
+
+    if (!hasValidSize) {
+        showError('Oops!', 'Please select at least one size');
+        return;
+    }
+
     const files = document.getElementById('file').files;
     for (let i = 0; i < files.length; i++) {
         f.append('images[]', files[i]);
