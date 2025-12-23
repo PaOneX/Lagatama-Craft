@@ -1,0 +1,1382 @@
+[
+    {
+        "date": "2025-07-17",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "composer.json"
+        ]
+    },
+    {
+        "date": "2025-07-17",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/app.php"
+        ]
+    },
+    {
+        "date": "2025-07-18",
+        "time": "10:30:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Http.php"
+        ]
+    },
+    {
+        "date": "2025-07-18",
+        "time": "17:45:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Upload.php"
+        ]
+    },
+    {
+        "date": "2025-07-19",
+        "time": "10:30:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Cart.php"
+        ]
+    },
+    {
+        "date": "2025-07-19",
+        "time": "17:45:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Order.php"
+        ]
+    },
+    {
+        "date": "2025-07-20",
+        "time": "10:30:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Product.php",
+            "app/Models/User.php"
+        ]
+    },
+    {
+        "date": "2025-07-20",
+        "time": "17:45:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Services/AdminService.php"
+        ]
+    },
+    {
+        "date": "2025-07-21",
+        "time": "10:30:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/AuthService.php"
+        ]
+    },
+    {
+        "date": "2025-07-21",
+        "time": "17:45:00",
+        "message": "Add application services",
+        "files": [
+            ".htaccess"
+        ]
+    },
+    {
+        "date": "2025-07-22",
+        "time": "10:30:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "csrf.php"
+        ]
+    },
+    {
+        "date": "2025-07-22",
+        "time": "17:45:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "public/.htaccess"
+        ]
+    },
+    {
+        "date": "2025-07-23",
+        "time": "10:30:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "api/checkout/notify.php"
+        ]
+    },
+    {
+        "date": "2025-07-23",
+        "time": "17:45:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "api/checkout/status.php"
+        ]
+    },
+    {
+        "date": "2025-07-24",
+        "time": "10:30:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/api/user/profileImgUploadProcess.php",
+            "public/invoice.php"
+        ]
+    },
+    {
+        "date": "2025-07-24",
+        "time": "17:45:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/orderHistory.php"
+        ]
+    },
+    {
+        "date": "2025-07-25",
+        "time": "10:30:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/router.php"
+        ]
+    },
+    {
+        "date": "2025-07-25",
+        "time": "17:45:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/singleProductView.php"
+        ]
+    },
+    {
+        "date": "2025-07-26",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/stockManagement.php"
+        ]
+    },
+    {
+        "date": "2025-07-26",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "views/layouts/customer.php"
+        ]
+    },
+    {
+        "date": "2025-07-27",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/cart-items.php"
+        ]
+    },
+    {
+        "date": "2025-07-27",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "public/assets/css/adminDash.css"
+        ]
+    },
+    {
+        "date": "2025-07-28",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/css/style.css",
+            "public/assets/js/admin/management.js"
+        ]
+    },
+    {
+        "date": "2025-07-28",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/core/theme.js"
+        ]
+    },
+    {
+        "date": "2025-07-29",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/shop/cart.js"
+        ]
+    },
+    {
+        "date": "2025-07-29",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/shop/checkout.js"
+        ]
+    },
+    {
+        "date": "2025-07-30",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/shop/product-detail.js"
+        ]
+    },
+    {
+        "date": "2025-07-30",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/shop/products.js"
+        ]
+    },
+    {
+        "date": "2025-07-31",
+        "time": "10:30:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "Exception.php"
+        ]
+    },
+    {
+        "date": "2025-07-31",
+        "time": "17:45:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "OAuth.php"
+        ]
+    },
+    {
+        "date": "2025-10-01",
+        "time": "10:30:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "PHPMailer.php"
+        ]
+    },
+    {
+        "date": "2025-10-01",
+        "time": "17:45:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "POP3.php"
+        ]
+    },
+    {
+        "date": "2025-10-02",
+        "time": "10:30:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "SMTP.php"
+        ]
+    },
+    {
+        "date": "2025-10-02",
+        "time": "17:45:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "public/assets/vendor/phpmailer/Exception.php"
+        ]
+    },
+    {
+        "date": "2025-10-03",
+        "time": "10:30:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "public/assets/vendor/phpmailer/OAuth.php"
+        ]
+    },
+    {
+        "date": "2025-10-03",
+        "time": "17:45:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "public/assets/vendor/phpmailer/PHPMailer.php"
+        ]
+    },
+    {
+        "date": "2025-10-04",
+        "time": "10:30:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "public/assets/vendor/phpmailer/POP3.php",
+            "public/assets/vendor/phpmailer/SMTP.php"
+        ]
+    },
+    {
+        "date": "2025-10-04",
+        "time": "17:45:00",
+        "message": "Move PHPMailer into vendor directory",
+        "files": [
+            "aboutUs.php"
+        ]
+    },
+    {
+        "date": "2025-10-05",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "addtoCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-05",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminDashboard.php"
+        ]
+    },
+    {
+        "date": "2025-10-06",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminNavBar.php"
+        ]
+    },
+    {
+        "date": "2025-10-06",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminReportProduct.php"
+        ]
+    },
+    {
+        "date": "2025-10-07",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminReportSales.php"
+        ]
+    },
+    {
+        "date": "2025-10-07",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminReportStock.php"
+        ]
+    },
+    {
+        "date": "2025-10-09",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminReportUser.php"
+        ]
+    },
+    {
+        "date": "2025-10-09",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminSignIn.php"
+        ]
+    },
+    {
+        "date": "2025-10-10",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-10",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminSignOutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-11",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "adminheader.php"
+        ]
+    },
+    {
+        "date": "2025-10-11",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "advSearchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-12",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "brandRegisterProcess.php",
+            "buynowProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-12",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "cart.php"
+        ]
+    },
+    {
+        "date": "2025-10-13",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "categoryRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-13",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "changePasswordProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-14",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "checkoutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-14",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "clrRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-15",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "connection.php"
+        ]
+    },
+    {
+        "date": "2025-10-15",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "footer.php"
+        ]
+    },
+    {
+        "date": "2025-10-16",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "forgotPasswordProcess.php",
+            "header.php"
+        ]
+    },
+    {
+        "date": "2025-10-16",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "home.php"
+        ]
+    },
+    {
+        "date": "2025-10-17",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "invoice.php"
+        ]
+    },
+    {
+        "date": "2025-10-17",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-18",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadChartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-18",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadChartProcess2.php"
+        ]
+    },
+    {
+        "date": "2025-10-19",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadChartProcess3.php"
+        ]
+    },
+    {
+        "date": "2025-10-19",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-20",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "loadUserProcess.php",
+            "navBar.php"
+        ]
+    },
+    {
+        "date": "2025-10-20",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "orderHistory.php"
+        ]
+    },
+    {
+        "date": "2025-10-21",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "paymentProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-21",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "productManagement.php"
+        ]
+    },
+    {
+        "date": "2025-10-23",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "productRegProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-23",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "profile.php"
+        ]
+    },
+    {
+        "date": "2025-10-24",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "profileImgUploadProcess.php",
+            "public/addtoCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-24",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/adminGoogleSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-25",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/adminSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-25",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/adminSignOutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-26",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/advSearchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-26",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/brandRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-27",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/buynowProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-27",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/categoryRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-28",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/changePasswordProcess.php",
+            "public/checkoutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-28",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/clrRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-30",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/forgotPasswordProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-30",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/googleSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-31",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/landingOfferDeleteProcess.php"
+        ]
+    },
+    {
+        "date": "2025-10-31",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/landingOfferSaveProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-01",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/landingOfferToggleProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-01",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-02",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadChartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-02",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadChartProcess2.php"
+        ]
+    },
+    {
+        "date": "2025-11-03",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadChartProcess3.php"
+        ]
+    },
+    {
+        "date": "2025-11-03",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-04",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/loadUserProcess.php",
+            "public/paymentProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-04",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/productRegProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-05",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/profileImgUploadProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-05",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/removeCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-08",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/resetPasswordProcess.php",
+            "public/saveLandingHeroProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-08",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/searchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-09",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/shippingAddressProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-09",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/signInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-10",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/signOutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-10",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/signUpProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-11",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/sizeRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-11",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/updateCartQtyProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-13",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/updateDataProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-13",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/updateStockProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-14",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/updateUserStatusProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-14",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "public/userSearchProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-15",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "removeCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-15",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "report.php"
+        ]
+    },
+    {
+        "date": "2025-11-16",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "resetPasswordProcess.php",
+            "searchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-16",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "shippingAddressProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-18",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "signInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-18",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "signOutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-20",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "signUpProcess.php",
+            "singleProductView.php"
+        ]
+    },
+    {
+        "date": "2025-11-20",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "sizeRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-21",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "stockManagement.php"
+        ]
+    },
+    {
+        "date": "2025-11-21",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "updateCartQtyProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-24",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "updateDataProcess.php",
+            "updateStockProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-24",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "updateUserStatusProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-28",
+        "time": "10:30:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "userManagement.php",
+            "userSearchProcess.php"
+        ]
+    },
+    {
+        "date": "2025-11-28",
+        "time": "17:45:00",
+        "message": "Add root compatibility wrappers",
+        "files": [
+            "about2.css"
+        ]
+    },
+    {
+        "date": "2025-11-29",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "adminDash.css"
+        ]
+    },
+    {
+        "date": "2025-11-29",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "bootstrap.bundle.js"
+        ]
+    },
+    {
+        "date": "2025-11-30",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "bootstrap.css"
+        ]
+    },
+    {
+        "date": "2025-11-30",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "bootstrap.js"
+        ]
+    },
+    {
+        "date": "2025-12-01",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "font/Dangrek-Regular.ttf"
+        ]
+    },
+    {
+        "date": "2025-12-01",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "font/absender1.ttf"
+        ]
+    },
+    {
+        "date": "2025-12-02",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "index.html"
+        ]
+    },
+    {
+        "date": "2025-12-02",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "invoice.css"
+        ]
+    },
+    {
+        "date": "2025-12-03",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/90698.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-03",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/admin.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-04",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/homepg3.jpg",
+            "public/resources/icons8-kibana-48.png"
+        ]
+    },
+    {
+        "date": "2025-12-04",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/images/hansi logo jpg.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-05",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/invoice.webp"
+        ]
+    },
+    {
+        "date": "2025-12-05",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/painting-mountain-lake-with-mountain-background.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-06",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/pexels-pixabay-206359.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-06",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-01.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-07",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-02.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-07",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-03.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-08",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-04.jpg",
+            "public/resources/productImg/product-05.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-08",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-06.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-09",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-07.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-09",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productImg/product-08.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-11",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/productManag.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-11",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/profileImg/google_17_6a425d0d71eec2.99537592.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-12",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/profileImg/profileImg.png",
+            "public/resources/stockManag.png"
+        ]
+    },
+    {
+        "date": "2025-12-12",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "public/resources/userManage.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-13",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/images/hansi logo jpg.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-13",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-01.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-14",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-02.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-14",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-03.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-15",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-04.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-15",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-05.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-16",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-06.jpg",
+            "resources/productImg/product-07.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-16",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/productImg/product-08.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-18",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/profileImg/google_17_6a425d0d71eec2.99537592.jpg"
+        ]
+    },
+    {
+        "date": "2025-12-18",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "resources/profileImg/profileImg.png"
+        ]
+    },
+    {
+        "date": "2025-12-19",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "script.js"
+        ]
+    },
+    {
+        "date": "2025-12-19",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "serve.ps1"
+        ]
+    },
+    {
+        "date": "2025-12-20",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "storage/cacert.pem",
+            "storage/rate_limit/.gitignore"
+        ]
+    },
+    {
+        "date": "2025-12-20",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "style.css"
+        ]
+    },
+    {
+        "date": "2025-12-22",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/backfill-commits.ps1"
+        ]
+    },
+    {
+        "date": "2025-12-22",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/cleanup-duplicates.php"
+        ]
+    },
+    {
+        "date": "2025-12-23",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/commit-plan-batch2.json"
+        ]
+    },
+    {
+        "date": "2025-12-23",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/commit-plan.json"
+        ]
+    },
+    {
+        "date": "2025-12-24",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/create-public-wrappers.php"
+        ]
+    },
+    {
+        "date": "2025-12-24",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/generate-commit-plan.php"
+        ]
+    },
+    {
+        "date": "2025-12-25",
+        "time": "10:30:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/migrate-landing.php"
+        ]
+    },
+    {
+        "date": "2025-12-25",
+        "time": "17:45:00",
+        "message": "Add resources and maintenance tools",
+        "files": [
+            "tools/migrate-product-images.php"
+        ]
+    }
+]
