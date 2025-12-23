@@ -1,0 +1,992 @@
+[
+    {
+        "date": "2025-08-01",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "bootstrap.php"
+        ]
+    },
+    {
+        "date": "2025-08-01",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "composer.json"
+        ]
+    },
+    {
+        "date": "2025-08-02",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/app.php"
+        ]
+    },
+    {
+        "date": "2025-08-02",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/database.php"
+        ]
+    },
+    {
+        "date": "2025-08-03",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/google.php"
+        ]
+    },
+    {
+        "date": "2025-08-03",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/mail.php"
+        ]
+    },
+    {
+        "date": "2025-08-04",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/payhere.php",
+            "config/promotions.php"
+        ]
+    },
+    {
+        "date": "2025-08-04",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "config/security.php"
+        ]
+    },
+    {
+        "date": "2025-08-05",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "database/migrations/001_product_images.sql"
+        ]
+    },
+    {
+        "date": "2025-08-05",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "database/migrations/002_auth_email.sql"
+        ]
+    },
+    {
+        "date": "2025-08-06",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "database/migrations/003_landing_page.sql"
+        ]
+    },
+    {
+        "date": "2025-08-06",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "database/schema.sql"
+        ]
+    },
+    {
+        "date": "2025-08-07",
+        "time": "10:30:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "database/seed.sql"
+        ]
+    },
+    {
+        "date": "2025-08-07",
+        "time": "17:45:00",
+        "message": "Add project foundation and configuration",
+        "files": [
+            "app/Core/Auth.php"
+        ]
+    },
+    {
+        "date": "2025-08-08",
+        "time": "10:30:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Database.php",
+            "app/Core/Http.php"
+        ]
+    },
+    {
+        "date": "2025-08-08",
+        "time": "17:45:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Response.php"
+        ]
+    },
+    {
+        "date": "2025-08-09",
+        "time": "10:30:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Security.php"
+        ]
+    },
+    {
+        "date": "2025-08-09",
+        "time": "17:45:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Session.php"
+        ]
+    },
+    {
+        "date": "2025-08-10",
+        "time": "10:30:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Upload.php"
+        ]
+    },
+    {
+        "date": "2025-08-10",
+        "time": "17:45:00",
+        "message": "Add core application layer",
+        "files": [
+            "app/Core/Validator.php"
+        ]
+    },
+    {
+        "date": "2025-08-11",
+        "time": "10:30:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Cart.php"
+        ]
+    },
+    {
+        "date": "2025-08-11",
+        "time": "17:45:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Landing.php"
+        ]
+    },
+    {
+        "date": "2025-08-12",
+        "time": "10:30:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Lookup.php",
+            "app/Models/Order.php"
+        ]
+    },
+    {
+        "date": "2025-08-12",
+        "time": "17:45:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Product.php"
+        ]
+    },
+    {
+        "date": "2025-08-13",
+        "time": "10:30:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/Stock.php"
+        ]
+    },
+    {
+        "date": "2025-08-13",
+        "time": "17:45:00",
+        "message": "Add domain models",
+        "files": [
+            "app/Models/User.php"
+        ]
+    },
+    {
+        "date": "2025-08-14",
+        "time": "10:30:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/AdminService.php"
+        ]
+    },
+    {
+        "date": "2025-08-14",
+        "time": "17:45:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/AuthService.php"
+        ]
+    },
+    {
+        "date": "2025-08-15",
+        "time": "10:30:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/CartService.php"
+        ]
+    },
+    {
+        "date": "2025-08-15",
+        "time": "17:45:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/CheckoutService.php"
+        ]
+    },
+    {
+        "date": "2025-08-16",
+        "time": "10:30:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/LandingService.php",
+            "app/Services/MailService.php"
+        ]
+    },
+    {
+        "date": "2025-08-16",
+        "time": "17:45:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/PaymentService.php"
+        ]
+    },
+    {
+        "date": "2025-08-17",
+        "time": "10:30:00",
+        "message": "Add application services",
+        "files": [
+            "app/Services/ProductService.php"
+        ]
+    },
+    {
+        "date": "2025-08-17",
+        "time": "17:45:00",
+        "message": "Add application services",
+        "files": [
+            ".gitignore"
+        ]
+    },
+    {
+        "date": "2025-08-18",
+        "time": "10:30:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            ".htaccess"
+        ]
+    },
+    {
+        "date": "2025-08-18",
+        "time": "17:45:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "csrf.php"
+        ]
+    },
+    {
+        "date": "2025-08-19",
+        "time": "10:30:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "public/.htaccess"
+        ]
+    },
+    {
+        "date": "2025-08-19",
+        "time": "17:45:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "public/csrf.php"
+        ]
+    },
+    {
+        "date": "2025-08-20",
+        "time": "10:30:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "public/init.php",
+            "public/api/auth/adminGoogleSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-20",
+        "time": "17:45:00",
+        "message": "Add public bootstrap and security helpers",
+        "files": [
+            "public/api/auth/adminSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-21",
+        "time": "10:30:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/adminSignOutProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-21",
+        "time": "17:45:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/changePasswordProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-22",
+        "time": "10:30:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/forgotPasswordProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-22",
+        "time": "17:45:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/googleSignInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-23",
+        "time": "10:30:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/resetPasswordProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-23",
+        "time": "17:45:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/signInProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-24",
+        "time": "10:30:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/auth/signOutProcess.php",
+            "public/api/auth/signUpProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-24",
+        "time": "17:45:00",
+        "message": "Wire authentication API endpoints",
+        "files": [
+            "public/api/cart/addtoCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-25",
+        "time": "10:30:00",
+        "message": "Wire cart API endpoints",
+        "files": [
+            "public/api/cart/loadCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-25",
+        "time": "17:45:00",
+        "message": "Wire cart API endpoints",
+        "files": [
+            "public/api/cart/removeCartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-26",
+        "time": "10:30:00",
+        "message": "Wire cart API endpoints",
+        "files": [
+            "public/api/cart/updateCartQtyProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-26",
+        "time": "17:45:00",
+        "message": "Wire cart API endpoints",
+        "files": [
+            "api/checkout/notify.php"
+        ]
+    },
+    {
+        "date": "2025-08-27",
+        "time": "10:30:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "api/checkout/status.php"
+        ]
+    },
+    {
+        "date": "2025-08-27",
+        "time": "17:45:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "public/api/checkout/buynowProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-28",
+        "time": "10:30:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "public/api/checkout/checkoutProcess.php",
+            "public/api/checkout/notify.php"
+        ]
+    },
+    {
+        "date": "2025-08-28",
+        "time": "17:45:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "public/api/checkout/paymentProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-29",
+        "time": "10:30:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "public/api/checkout/status.php"
+        ]
+    },
+    {
+        "date": "2025-08-29",
+        "time": "17:45:00",
+        "message": "Add checkout and PayHere integration",
+        "files": [
+            "public/api/products/advSearchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-30",
+        "time": "10:30:00",
+        "message": "Wire product search API endpoints",
+        "files": [
+            "public/api/products/loadProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-30",
+        "time": "17:45:00",
+        "message": "Wire product search API endpoints",
+        "files": [
+            "public/api/products/searchProductProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-31",
+        "time": "10:30:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/api/user/profileImgUploadProcess.php"
+        ]
+    },
+    {
+        "date": "2025-08-31",
+        "time": "17:45:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/api/user/shippingAddressProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-01",
+        "time": "10:30:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/api/user/updateDataProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-01",
+        "time": "17:45:00",
+        "message": "Wire user profile API endpoints",
+        "files": [
+            "public/api/admin/brandRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-02",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/categoryRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-02",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/clrRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-03",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/landingOfferDeleteProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-03",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/landingOfferSaveProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-04",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/landingOfferToggleProcess.php",
+            "public/api/admin/loadChartProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-04",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/loadChartProcess2.php"
+        ]
+    },
+    {
+        "date": "2025-09-05",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/loadChartProcess3.php"
+        ]
+    },
+    {
+        "date": "2025-09-05",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/loadUserProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-06",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/productRegProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-06",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/saveLandingHeroProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-07",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/sizeRegisterProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-07",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/updateStockProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-08",
+        "time": "10:30:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/admin/updateUserStatusProcess.php",
+            "public/api/admin/userSearchProcess.php"
+        ]
+    },
+    {
+        "date": "2025-09-08",
+        "time": "17:45:00",
+        "message": "Wire admin management API endpoints",
+        "files": [
+            "public/api/bootstrap.php"
+        ]
+    },
+    {
+        "date": "2025-09-09",
+        "time": "10:30:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/aboutUs.php"
+        ]
+    },
+    {
+        "date": "2025-09-09",
+        "time": "17:45:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/cart.php"
+        ]
+    },
+    {
+        "date": "2025-09-10",
+        "time": "10:30:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/home.php"
+        ]
+    },
+    {
+        "date": "2025-09-10",
+        "time": "17:45:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/index.php"
+        ]
+    },
+    {
+        "date": "2025-09-11",
+        "time": "10:30:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/invoice.php"
+        ]
+    },
+    {
+        "date": "2025-09-11",
+        "time": "17:45:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/orderHistory.php"
+        ]
+    },
+    {
+        "date": "2025-09-12",
+        "time": "10:30:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/profile.php",
+            "public/singleProductView.php"
+        ]
+    },
+    {
+        "date": "2025-09-12",
+        "time": "17:45:00",
+        "message": "Add customer storefront pages",
+        "files": [
+            "public/admin/adminDashboard.php"
+        ]
+    },
+    {
+        "date": "2025-09-13",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/adminReportProduct.php"
+        ]
+    },
+    {
+        "date": "2025-09-13",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/adminReportSales.php"
+        ]
+    },
+    {
+        "date": "2025-09-14",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/adminReportStock.php"
+        ]
+    },
+    {
+        "date": "2025-09-14",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/adminReportUser.php"
+        ]
+    },
+    {
+        "date": "2025-09-15",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/adminSignIn.php"
+        ]
+    },
+    {
+        "date": "2025-09-15",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/csrf.php"
+        ]
+    },
+    {
+        "date": "2025-09-16",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/landingManagement.php",
+            "public/admin/productManagement.php"
+        ]
+    },
+    {
+        "date": "2025-09-16",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/report.php"
+        ]
+    },
+    {
+        "date": "2025-09-17",
+        "time": "10:30:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/stockManagement.php"
+        ]
+    },
+    {
+        "date": "2025-09-17",
+        "time": "17:45:00",
+        "message": "Add admin dashboard pages",
+        "files": [
+            "public/admin/userManagement.php"
+        ]
+    },
+    {
+        "date": "2025-09-18",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/emails/layout.php"
+        ]
+    },
+    {
+        "date": "2025-09-18",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/emails/otp-reset.php"
+        ]
+    },
+    {
+        "date": "2025-09-19",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/emails/welcome.php"
+        ]
+    },
+    {
+        "date": "2025-09-19",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/layouts/admin.php"
+        ]
+    },
+    {
+        "date": "2025-09-20",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/layouts/customer.php",
+            "views/partials/admin-navbar.php"
+        ]
+    },
+    {
+        "date": "2025-09-20",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/admin-sidebar.php"
+        ]
+    },
+    {
+        "date": "2025-09-21",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/admin-topbar.php"
+        ]
+    },
+    {
+        "date": "2025-09-21",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/admin-user-row.php"
+        ]
+    },
+    {
+        "date": "2025-09-22",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/cart-empty.php"
+        ]
+    },
+    {
+        "date": "2025-09-22",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/cart-items.php"
+        ]
+    },
+    {
+        "date": "2025-09-23",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/footer.php"
+        ]
+    },
+    {
+        "date": "2025-09-23",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/header.php"
+        ]
+    },
+    {
+        "date": "2025-09-24",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/landing-offers.php",
+            "views/partials/navbar.php"
+        ]
+    },
+    {
+        "date": "2025-09-24",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/pagination.php"
+        ]
+    },
+    {
+        "date": "2025-09-25",
+        "time": "10:30:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "views/partials/product-card.php"
+        ]
+    },
+    {
+        "date": "2025-09-25",
+        "time": "17:45:00",
+        "message": "Add view templates and layouts",
+        "files": [
+            "public/assets/css/about2.css"
+        ]
+    },
+    {
+        "date": "2025-09-26",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/css/adminDash.css"
+        ]
+    },
+    {
+        "date": "2025-09-26",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/css/bootstrap.css"
+        ]
+    },
+    {
+        "date": "2025-09-27",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/css/invoice.css"
+        ]
+    },
+    {
+        "date": "2025-09-27",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/css/style.css"
+        ]
+    },
+    {
+        "date": "2025-09-28",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/admin/landing.js",
+            "public/assets/js/admin/management.js"
+        ]
+    },
+    {
+        "date": "2025-09-28",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/admin/sidebar.js"
+        ]
+    },
+    {
+        "date": "2025-09-29",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/core/alerts.js"
+        ]
+    },
+    {
+        "date": "2025-09-29",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/core/http.js"
+        ]
+    },
+    {
+        "date": "2025-09-30",
+        "time": "10:30:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/legacy-loader.js"
+        ]
+    },
+    {
+        "date": "2025-09-30",
+        "time": "17:45:00",
+        "message": "Add frontend assets",
+        "files": [
+            "public/assets/js/shop/auth.js"
+        ]
+    }
+]
